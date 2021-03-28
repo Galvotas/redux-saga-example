@@ -1,4 +1,4 @@
-export default function counter(state = 0, action) {
+export const counterReducer = (state = 0, action) => {
   switch (action.type) {
     case 'INCREMENT':
       return state + 1
@@ -8,5 +8,17 @@ export default function counter(state = 0, action) {
       return state - 1
     default:
       return state
+  }
+}
+
+const initialUsersState = {
+  users: []
+}
+
+export const usersReducer = (state = initialUsersState, action) => {
+  switch(action.type) {
+case 'LOG_USERS':
+return {users: action.payload}
+    default: return state;
   }
 }
